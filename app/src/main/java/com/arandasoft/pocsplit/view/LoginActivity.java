@@ -3,6 +3,7 @@ package com.arandasoft.pocsplit.view;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +13,12 @@ import com.arandasoft.pocsplit.controller.LoginController;
 public class LoginActivity extends AppCompatActivity {
 
     private LoginController controller;
+
+    public static ProgressBar getProgressBar() {
+        return progressBar;
+    }
+
+    private static ProgressBar progressBar;
 
     public EditText getEdtUser() {
         return edtUser;
@@ -35,8 +42,10 @@ public class LoginActivity extends AppCompatActivity {
 
     //Instantiate views
     private void init(){
+        controller = new LoginController(this);
         edtUser = findViewById(R.id.editText);
         loginBtn = findViewById(R.id.button);
+        progressBar = findViewById(R.id.progressBar);
     }
 
 }
