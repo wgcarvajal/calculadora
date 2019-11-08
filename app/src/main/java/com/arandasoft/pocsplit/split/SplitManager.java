@@ -53,7 +53,7 @@ public class SplitManager {
             SplitClient client = splitFactory.client();
             client.on(SplitEvent.SDK_READY, new SplitEventTask() {
                 @Override
-                public void onPostExecution(SplitClient client) {
+                public void onPostExecutionView(SplitClient client) {
                     String androidTestPot = client.getTreatment("AndroidTestPot");
                     String androidTestSqrt = client.getTreatment("AndroidTestSqrt");
 
@@ -66,7 +66,7 @@ public class SplitManager {
             });
             client.on(SplitEvent.SDK_READY_TIMED_OUT, new SplitEventTask() {
                 @Override
-                public void onPostExecution(SplitClient client) {
+                public void onPostExecutionView(SplitClient client) {
                     callback.onFailed("time out");
                 }
             });
