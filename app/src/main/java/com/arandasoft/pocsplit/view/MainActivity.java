@@ -1,5 +1,6 @@
 package com.arandasoft.pocsplit.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button buttonpot;
     private Button buttonraiz;
+    private Button backButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         buttonpot = findViewById(R.id.buttonpot);
         buttonraiz = findViewById(R.id.buttonraiz);
+        backButton = findViewById(R.id.backButton);
 
         PreferenceManager preferenceManager = PreferenceManager.getInstance(this);
 
@@ -29,6 +32,14 @@ public class MainActivity extends AppCompatActivity {
 
         showHide(pot,buttonpot);
         showHide(sqrt,buttonraiz);
+
+        backButton.setOnClickListener(view -> {
+
+            Intent loginIntent = new Intent(this,LoginActivity.class);
+            startActivity(loginIntent);
+            finish();
+
+        });
 
     }
 
