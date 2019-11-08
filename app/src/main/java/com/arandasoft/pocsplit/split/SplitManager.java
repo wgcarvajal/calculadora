@@ -61,6 +61,7 @@ public class SplitManager {
                     operation.setAndroidTestPot(androidTestPot);
                     operation.setAndroidTestSqrt(androidTestSqrt);
                     callback.onSuccess(operation);
+                    client.destroy();
                 }
 
             });
